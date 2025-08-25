@@ -1,0 +1,84 @@
+  body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f1f5f9;
+    }
+    .layout {
+      display: flex;
+      height: 100vh;
+    }
+    /* Sidebar */
+    .sidebar {
+      width: 250px;
+      background: #1e293b; /* biru tua */
+      color: white;
+      padding: 20px;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s ease;
+    }
+    .sidebar h2 {
+      margin-top: 0;
+    }
+    .sidebar .menu-title {
+      font-size: 14px;
+      font-weight: bold;
+      margin: 15px 0 5px;
+      color: #94a3b8;
+      text-transform: uppercase;
+    }
+    .sidebar a {
+      display: block;
+      color: white;
+      text-decoration: none;
+      padding: 8px 0;
+      font-size: 15px;
+      border-radius: 6px;
+      transition: background 0.2s;
+    }
+    .sidebar a:hover {
+      background: #334155;
+    }
+    /* Content */
+    .content {
+      flex: 1;
+      padding: 20px;
+      overflow-y: auto;
+    }
+    /* Toggle button (mobile) */
+    .toggle-btn {
+      display: none;
+      position: fixed;
+      top: 15px;
+      left: 15px;
+      background: #1e293b;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      cursor: pointer;
+      border-radius: 4px;
+      z-index: 200; /* biar di atas sidebar */
+    }
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    transform: translateX(-100%);
+    z-index: 150;
+    height: 100vh;
+  }
+  .sidebar.active {
+    transform: translateX(0);
+  }
+  .content {
+    flex: 1;
+    padding: 20px;
+    margin-left: 0; /* biar full lebar di mobile */
+  }
+  .toggle-btn {
+    display: block;
+  }
+}

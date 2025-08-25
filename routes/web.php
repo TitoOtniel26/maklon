@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\ContentController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CVController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\MaklonController;
 
 /*
@@ -20,3 +22,14 @@ use App\Http\Controllers\MaklonController;
 // Route::post('/cv/download', [CVController::class, 'download'])->name('cv.download');
 
 Route::get('/', [MaklonController::class, 'index'])->name('maklon.index');
+
+//Maklon Admin
+Route::controller(UserController::class)->group(function () {
+    Route::get('login', 'index');
+    Route::get('daftar','register');
+    Route::get('lost-password','lostPassword');
+});
+
+Route::controller(ContentController::class)->group(function () {
+    Route::get('dashboard', 'index');
+});
