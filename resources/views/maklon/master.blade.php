@@ -44,44 +44,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-
-  <style>
-    :root{
-      /* Cerah tapi tidak mencolok */
-      --bg-soft: #f6f9fc;
-      --brand: #4f46e5; /* indigo */
-      --brand-2: #06b6d4; /* cyan */
-      --text: #111827;
-      --muted: #6b7280;
-      --card: #ffffff;
-      --border: #e5e7eb;
-    }
-    body{font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'; color: var(--text); background: linear-gradient(180deg, var(--bg-soft), #fff 40%);}    
-
-    /* Top Navbar */
-    .navbar {
-      background: rgba(255,255,255,.85)!important;
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid var(--border);
-      position: sticky;
-      top: 0;
-      z-index: 1040;
-    }
-    .nav-link { font-weight: 600; }
-
-    /* Animated Search */
-    .search-wrapper{ position: relative; }
-    .search-field{ position: absolute; left: 0; top: 50%; transform: translateY(-50%) scaleX(0); transform-origin: left center; transition: transform .26s ease, opacity .26s ease; opacity: 0; width: 260px; }
-    .search-wrapper.active .search-field{ transform: translateY(-50%) scaleX(1); opacity: 1; }
-
-    /* Hero / Cards */
-    .hero{ padding: 3.5rem 0 2rem; }
-    .card-soft{ border: 1px solid var(--border); background: var(--card); box-shadow: 0 4px 20px rgba(0,0,0,.04); border-radius: 16px; }
-    .card-soft .badge{ background: linear-gradient(135deg, var(--brand), var(--brand-2)); }
-
-    footer{ background: #0b1020; color: #e5e7eb; }
-    footer a{ color: #c7d2fe; }
-  </style>
+  <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
 </head>
 <body>
   <!-- Top Navbar -->

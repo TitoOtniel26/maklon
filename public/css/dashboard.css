@@ -1,84 +1,35 @@
-  body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f1f5f9;
+  :root{
+      /* Cerah tapi tidak mencolok */
+      --bg-soft: #f6f9fc;
+      --brand: #4f46e5; /* indigo */
+      --brand-2: #06b6d4; /* cyan */
+      --text: #111827;
+      --muted: #6b7280;
+      --card: #ffffff;
+      --border: #e5e7eb;
     }
-    .layout {
-      display: flex;
-      height: 100vh;
+    body{font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'; color: var(--text); background: linear-gradient(180deg, var(--bg-soft), #fff 40%);}    
+
+    /* Top Navbar */
+    .navbar {
+      background: rgba(255,255,255,.85)!important;
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 1040;
     }
-    /* Sidebar */
-    .sidebar {
-      width: 250px;
-      background: #1e293b; /* biru tua */
-      color: white;
-      padding: 20px;
-      flex-shrink: 0;
-      display: flex;
-      flex-direction: column;
-      transition: transform 0.3s ease;
-    }
-    .sidebar h2 {
-      margin-top: 0;
-    }
-    .sidebar .menu-title {
-      font-size: 14px;
-      font-weight: bold;
-      margin: 15px 0 5px;
-      color: #94a3b8;
-      text-transform: uppercase;
-    }
-    .sidebar a {
-      display: block;
-      color: white;
-      text-decoration: none;
-      padding: 8px 0;
-      font-size: 15px;
-      border-radius: 6px;
-      transition: background 0.2s;
-    }
-    .sidebar a:hover {
-      background: #334155;
-    }
-    /* Content */
-    .content {
-      flex: 1;
-      padding: 20px;
-      overflow-y: auto;
-    }
-    /* Toggle button (mobile) */
-    .toggle-btn {
-      display: none;
-      position: fixed;
-      top: 15px;
-      left: 15px;
-      background: #1e293b;
-      color: white;
-      border: none;
-      padding: 8px 12px;
-      cursor: pointer;
-      border-radius: 4px;
-      z-index: 200; /* biar di atas sidebar */
-    }
-@media (max-width: 768px) {
-  .sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    transform: translateX(-100%);
-    z-index: 150;
-    height: 100vh;
-  }
-  .sidebar.active {
-    transform: translateX(0);
-  }
-  .content {
-    flex: 1;
-    padding: 20px;
-    margin-left: 0; /* biar full lebar di mobile */
-  }
-  .toggle-btn {
-    display: block;
-  }
-}
+    .nav-link { font-weight: 600; }
+
+    /* Animated Search */
+    .search-wrapper{ position: relative; }
+    .search-field{ position: absolute; left: 0; top: 50%; transform: translateY(-50%) scaleX(0); transform-origin: left center; transition: transform .26s ease, opacity .26s ease; opacity: 0; width: 260px; }
+    .search-wrapper.active .search-field{ transform: translateY(-50%) scaleX(1); opacity: 1; }
+
+    /* Hero / Cards */
+    .hero{ padding: 3.5rem 0 2rem; }
+    .card-soft{ border: 1px solid var(--border); background: var(--card); box-shadow: 0 4px 20px rgba(0,0,0,.04); border-radius: 16px; }
+    .card-soft .badge{ background: linear-gradient(135deg, var(--brand), var(--brand-2)); }
+
+    footer{ background: #0b1020; color: #e5e7eb; }
+    footer a{ color: #c7d2fe; }
