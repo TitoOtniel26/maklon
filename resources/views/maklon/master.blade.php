@@ -41,6 +41,32 @@
       color: #fff !important;
       text-decoration: none;
     }
+
+     .footer-item-title, .footer-item{
+        text-align: center;
+      }
+
+
+    @media only screen and (max-width:578px){
+      .footer-item-title, .footer-item{
+        text-align: start !important;
+      }
+
+      .footer-item-list{
+        align-items: start !important;
+      }
+
+    .copyright-text{
+      text-align: center !important;
+    }
+
+    }
+
+    .copyright-text{
+      font-size: 12px;
+      text-align:  left;
+    }
+
   </style>
 </head>
 <body>
@@ -100,37 +126,34 @@
 <footer class="bg-dark text-light mt-5 pt-5 pb-3">
   <div class="container">
     <div class="row gy-4">
-      <div class="col-md-4 text-center text-md-start">
+      <div class="col-md-4 text-md-start footer-item">
         <h5 class="fw-bold">Platform Kreator</h5>
         <p>Jalan Gg. H. Nisan No.52, RT.6/RW.7, Ragunan, Ps. Minggu, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12550</p>
-        <p class="mb-0">© Ippul Developer <span class="year"></span>. All rights reserved.</p>
       </div>
       <div class="col-md-4">
-        <h6 class="fw-bold text-center">Tentang</h6>
-        <ul class="nav flex-column align-items-center">
+        <h6 class="fw-bold footer-item-title">Tentang</h6>
+        <ul class="nav flex-column align-items-center footer-item-list">
           <li class="nav-item"><a href="{{ route('maklon.aboutus') }}" class="nav-link px-2 text-decoration-none">Tentang Kita</a></li>
           <li class="nav-item"><a href="{{ route('maklon.carrer') }}" class="nav-link px-2 text-decoration-none">Karir</a></li>
           <li class="nav-item"><a href="{{ route('maklon.privacy') }}" class="nav-link px-2 text-decoration-none">Kebijakan Privasi</a></li>
         </ul>
       </div>
       <div class="col-md-4">
-        <h6 class="fw-bold text-center">Kolaborasi</h6>
-        <ul class="nav flex-column align-items-center">
+        <h6 class="fw-bold footer-item-title">Kolaborasi</h6>
+        <ul class="nav flex-column align-items-center footer-item-list">
           <li class="nav-item"><a href="{{ route('maklon.write') }}" class="nav-link px-2 text-decoration-none">Menulis Sekarang</a></li>
           <li class="nav-item"><a href="{{ route('maklon.sharing') }}" class="nav-link px-2 text-decoration-none">Bagikan Sekarang</a></li>
           <li class="nav-item"><a href="{{ route('maklon.faq') }}" class="nav-link px-2 text-decoration-none">FAQ</a></li>
         </ul>
       </div>
     </div>
+    <p class="mb-0 copyright-text">© Bang Ipul Developer <span class="year">{{ date('Y') }}</span>. All rights reserved.</p>
   </div>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <script>
   document.addEventListener('DOMContentLoaded', function(){
-    const years = document.querySelectorAll('.year');
-    years.forEach(el => el.textContent = new Date().getFullYear());
-    
     const searchToggle = document.getElementById("searchToggle");
     const searchField = document.getElementById("searchField");
     searchToggle.addEventListener("click", () => {
