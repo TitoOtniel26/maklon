@@ -26,13 +26,25 @@ Route::controller(CVController::class)->group(function () {
 });
 
 //Maklon Dashboard Route
-Route::controller(MaklonController::class,'index')->group(function(){
+Route::controller(MaklonController::class)->group(function () {
     Route::get('/', 'index')->name('maklon.index');
+    Route::get('daftar-sekarang', 'register')->name('maklon.register');
+    Route::get('menulis-sekarang', 'write')->name('maklon.write');
+    Route::get('bagikan-sekarang', 'sharing')->name('maklon.sharing');
+    Route::get('optimasi-sekarang', 'optimization')->name('maklon.optimization');
+    Route::get('desain-sekarang', 'designNow')->name('maklon.designnow');
+    Route::get('video-sekarang', 'videoNow')->name('maklon.videonow');
+    
+    Route::get('faq','faq')->name('maklon.faq');
+    Route::get('tentang-kita','tentangKita')->name('maklon.aboutus');
+    Route::get('karir','karir')->name('maklon.carrer');
+    Route::get('kebijakan-privasi','kebijakanPrivasi')->name('maklon.privacy');
+    Route::get('contact-us','contactUs')->name('maklon.contact');
 });
 
 //Maklon Admin Login Route
 Route::controller(UserController::class)->group(function () {
-    Route::get('login', 'index');
+    Route::get('login', 'index')->name('user.login');
     Route::get('daftar','register');
     Route::get('lost-password','lostPassword');
 });
