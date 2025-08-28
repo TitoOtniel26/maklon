@@ -11,7 +11,7 @@ class Article extends Model
 
     protected $fillable = [
         'title', 'slug', 'content', 
-        'meta_title', 'meta_desc', 'meta_key'
+        'meta_title', 'meta_desc', 'meta_key','category_id','user_id','schema'
     ];
 
 }

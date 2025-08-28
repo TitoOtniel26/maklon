@@ -11,14 +11,24 @@ return new class extends Migration
      */
     public function up(): void
     {
+        Schema::create('categories', function (Blueprint $table) {
+            $table->id();
+            $table->string('name')->unique();
+            $table->string('slug')->unique();
+            $table->timestamps();
+        });
+
         Schema::create('articles', function (Blueprint $table) {
             $table->id();
             $table->string('title');
             $table->string('slug')->unique();
-            $table->longText('content');
+            $table->text('content');
             $table->string('meta_title')->nullable();
-            $table->string('meta_desc')->nullable();
+            $table->text('meta_desc')->nullable();
             $table->string('meta_key')->nullable();
+            $table->unsignedBigInteger('user_id');
+            $table->foreignId('category_id')->constrained()->onDelete('cascade');
+            $table->json('schema')->nullable(); // Added for JSON-LD schema
             $table->timestamps();
         });
     }
@@ -29,6 +39,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('articles');
+        Schema::dropIfExists('categories');
 
         
     }

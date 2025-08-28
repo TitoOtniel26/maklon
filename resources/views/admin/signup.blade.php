@@ -85,7 +85,7 @@
           <button type="submit" class="btn btn-gradient w-100 mb-3">Daftar</button>
         </form>
         <div class="text-center small">
-          <a href="login.html" class="d-block mb-2 text-muted text-decoration-none">Sudah punya akun? Login</a>
+          <a href="{{ route('user.login') }}" class="d-block mb-2 text-muted text-decoration-none">Sudah punya akun? Login</a>
           <a href="/" class="d-block text-decoration-none">⬅ Kembali ke Homepage</a>
         </div>
       </div>

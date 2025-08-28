@@ -71,8 +71,8 @@
           <button type="submit" class="btn btn-gradient w-100 mb-3">Login</button>
         </form>
         <div class="text-center small">
-          <a href="#" class="d-block mb-2 text-muted text-decoration-none">Lupa kata sandi?</a>
-          <a href="#" class="d-block mb-2 text-muted text-decoration-none">Daftar akun baru</a>
+          <a href="{{ route('user.lostpassword') }}" class="d-block mb-2 text-muted text-decoration-none">Lupa kata sandi?</a>
+          <a href="{{ route('user.register') }}" class="d-block mb-2 text-muted text-decoration-none">Daftar akun baru</a>
           <a href="/" class="d-block text-decoration-none">⬅ Kembali ke Homepage</a>
         </div>
       </div>

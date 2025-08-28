@@ -118,7 +118,7 @@
 
 
 <!-- Konten -->
-<main class="container my-5">
+<main class="container">
   @yield('content')
 </main>
 

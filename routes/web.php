@@ -6,6 +6,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\MaklonController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\ContentController;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,19 +46,33 @@ Route::controller(MaklonController::class)->group(function () {
 //Maklon Admin Login Route
 Route::controller(UserController::class)->group(function () {
     Route::get('login', 'index')->name('user.login');
-    Route::get('daftar','register');
-    Route::get('lost-password','lostPassword');
+    Route::get('daftar','register')->name('user.register');
+    Route::get('lost-password','lostPassword')->name('user.lostpassword');
 });
 
 
-Route::controller(ArticleController::class)->group(function () {
-    Route::get('article','index')->name('article.index');
-    Route::get('/article/create', 'create')->name('article.create');
-    Route::post('/article', 'store')->name('article.store');
-    Route::get('/article/{id}/edit', 'edit')->name('article.edit');
-    Route::put('/article/{id}', 'update')->name('article.update');
-    Route::delete('/article/{id}', 'destroy')->name('article.destroy');
+Route::prefix('admin/article')->controller(ArticleController::class)->group(function () {
+    Route::get('/', [ArticleController::class, 'index'])->name('article.index');
+    Route::get('/create', [ArticleController::class, 'create'])->name('article.create');
+    Route::post('/article', [ArticleController::class, 'store'])->name('article.store');
+    Route::post('/suggest-ai', [ArticleController::class, 'suggestAIContent'])->name('article.suggest-ai');
+    Route::get('/{id}', [ArticleController::class, 'show'])->name('article.show');
+    Route::get('/{id}/edit', [ArticleController::class, 'edit'])->name('article.edit');
+    Route::put('/{id}', [ArticleController::class, 'update'])->name('article.update');
+    Route::delete('/{id}', [ArticleController::class, 'destroy'])->name('article.destroy');
+    Route::post('/generate-ai', [ArticleController::class, 'generateAIContent'])->name('article.generate-ai');
 });
+
+Route::get('/category/{id}', [CategoryController::class, 'get'])->name('category.get');
+
+// Route::controller(ArticleController::class)->group(function () {
+//     Route::get('article','index')->name('article.index');
+//     Route::get('/article/create', 'create')->name('article.create');
+//     Route::post('/article', 'store')->name('article.store');
+//     Route::get('/article/{id}/edit', 'edit')->name('article.edit');
+//     Route::put('/article/{id}', 'update')->name('article.update');
+//     Route::delete('/article/{id}', 'destroy')->name('article.destroy');
+// });
 
 
 //Admin Menu Routes

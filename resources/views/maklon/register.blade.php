@@ -21,7 +21,7 @@
         </div>
         <button type="submit" class="btn btn-primary btn-lg">Daftar Sekarang</button>
       </form>
-      <p class="mt-3 text-muted">Sudah punya akun? <a href="#masuk" class="text-primary">Masuk di sini</a>.</p>
+      <p class="mt-3 text-muted">Sudah punya akun? <a href="{{ route('user.login') }}" class="text-primary">Masuk di sini</a>.</p>
     </div>
     <div class="col-lg-6">
       <div class="card card-soft p-4">
